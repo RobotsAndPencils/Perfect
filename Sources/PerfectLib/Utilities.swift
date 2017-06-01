@@ -442,7 +442,7 @@ extension String {
 			return false
 		}
 		
-		return str.begins(with: self[self.index(self.endIndex, offsetBy: -theirs.count)..<mine.endIndex])
+		return str.begins(with: String(self[self.index(self.endIndex, offsetBy: -theirs.count)..<mine.endIndex]))
 	}
 }
 
@@ -668,9 +668,9 @@ extension String {
 			if noTrailsIndex == startIndex {
 				return self
 			}
-			return self[startIndex..<noTrailsIndex]
+			return String(self[startIndex..<noTrailsIndex])
 		}
-		return self[startIndex..<endIndex]
+		return String(self[startIndex..<endIndex])
 	}
 	
 	public var filePathExtension: String {
@@ -682,7 +682,7 @@ extension String {
 		guard endIndex != startIndex else {
 			return ""
 		}
-		return self[unis.index(after: endIndex)..<noTrailsIndex]
+		return String(self[unis.index(after: endIndex)..<noTrailsIndex])
 	}
 	
 	public var resolvingSymlinksInFilePath: String {
